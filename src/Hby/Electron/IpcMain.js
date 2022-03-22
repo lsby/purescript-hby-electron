@@ -1,4 +1,4 @@
-// on :: EventName -> (IpcMainEvent -> IpcArgs -> Task Unit) -> Task Unit
+// on :: EventName -> (IpcMainEvent -> Json -> Task Unit) -> Task Unit
 exports.on = (name) => (cb) => () => {
   var { ipcMain } = require("electron");
   return new Promise((res, rej) => {
