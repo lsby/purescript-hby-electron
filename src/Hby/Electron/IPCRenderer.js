@@ -21,7 +21,9 @@ exports.on = (name) => (cb) => () => {
 // sendSync :: EventName -> Json -> Task Json
 exports.sendSync = (name) => (args) => () => {
   return new Promise((res, rej) => {
-    var c = window.ipcRenderer.sendSync(name, args);
-    res(c);
+    setTimeout(() => {
+      var c = window.ipcRenderer.sendSync(name, args);
+      res(c);
+    }, 0);
   });
 };
